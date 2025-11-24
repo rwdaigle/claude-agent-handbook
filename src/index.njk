@@ -2,14 +2,30 @@
 layout: base.njk
 title: Home
 ---
-<div class="max-w-4xl mx-auto px-4 py-16 text-center">
-  <h1 class="text-4xl font-bold text-gray-900 mb-4">
-    {{ site.title }}
-  </h1>
-  <p class="text-xl text-gray-600 mb-8">
-    {{ site.description }}
-  </p>
-  <a href="/docs/" class="btn-primary inline-block">
-    Get Started
-  </a>
+<div class="max-w-3xl mx-auto px-6 sm:px-8 py-24 lg:py-32">
+  <div class="text-center">
+    {# Decorative flourish #}
+    <div class="flourish mb-8"></div>
+
+    {# Dramatic title #}
+    <h1 class="mb-8" style="font-size: var(--font-size-display); line-height: 1.1;">
+      {{ site.title }}
+    </h1>
+
+    {# Elegant divider #}
+    <div class="divider max-w-xs mx-auto"></div>
+
+    {# Description #}
+    <p class="text-xl lg:text-2xl mt-8 mb-12" style="color: var(--color-ink-light); line-height: 1.7;">
+      {{ site.description }}
+    </p>
+
+    {# Call to action #}
+    <a href="/docs/" class="btn-primary inline-block">
+      Begin Reading
+    </a>
+
+    {# Bottom flourish #}
+    <div class="flourish mt-16"></div>
+  </div>
 </div>

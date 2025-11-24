@@ -3,16 +3,11 @@
 {% macro renderNavItem(entry, currentUrl) %}
 <li>
   <a href="{{ entry.url }}"
-     class="block py-2 px-3 rounded-md transition-colors
-            {% if entry.url == currentUrl %}
-              bg-blue-50 text-blue-700 font-medium
-            {% else %}
-              text-gray-600 hover:text-gray-900 hover:bg-gray-100
-            {% endif %}">
+     class="sidebar-link{% if entry.url == currentUrl %} sidebar-link-active{% endif %}">
     {{ entry.title }}
   </a>
   {% if entry.children.length %}
-  <ul class="ml-4 mt-1 space-y-1">
+  <ul class="ml-4 mt-2 space-y-1">
     {% for child in entry.children %}
       {{ renderNavItem(child, currentUrl) }}
     {% endfor %}
@@ -21,8 +16,13 @@
 </li>
 {% endmacro %}
 
-<ul class="space-y-1">
-  {% for entry in navPages %}
-    {{ renderNavItem(entry, page.url) }}
-  {% endfor %}
-</ul>
+<div class="pr-6">
+  <p class="text-xs uppercase tracking-widest mb-6" style="color: var(--color-ink-muted); font-weight: 600; letter-spacing: 0.1em;">
+    Contents
+  </p>
+  <ul class="space-y-1">
+    {% for entry in navPages %}
+      {{ renderNavItem(entry, page.url) }}
+    {% endfor %}
+  </ul>
+</div>
