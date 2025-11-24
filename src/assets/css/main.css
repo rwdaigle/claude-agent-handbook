@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+/* Source paths for Tailwind to scan */
+@source "../../**/*.{njk,md,html}";
+
+/* Typography plugin configuration */
+@plugin "@tailwindcss/typography";
+
+/* Custom theme */
+@theme {
+  --color-primary: #3b82f6;
+  --color-primary-dark: #1d4ed8;
+}
+
+/* Custom base styles */
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply antialiased;
+  }
+}
+
+/* Custom component styles */
+@layer components {
+  .btn-primary {
+    @apply px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors;
+  }
+
+  .nav-link {
+    @apply text-gray-600 hover:text-primary transition-colors;
+  }
+
+  .nav-link-active {
+    @apply text-primary font-semibold;
+  }
+}

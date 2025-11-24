@@ -1,0 +1,13 @@
+<header class="bg-white shadow-sm border-b">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16">
+      <a href="/" class="font-bold text-xl text-gray-900">
+        {{ site.title }}
+      </a>
+      <nav class="hidden md:flex space-x-8">
+        <a href="/" class="nav-link{% if page.url == '/' %} nav-link-active{% endif %}">Home</a>
+        <a href="/docs/" class="nav-link{% if '/docs/' in page.url %} nav-link-active{% endif %}">Documentation</a>
+      </nav>
+    </div>
+  </div>
+</header>

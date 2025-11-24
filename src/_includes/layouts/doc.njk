@@ -1,0 +1,21 @@
+---
+layout: base.njk
+---
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+  <div class="lg:grid lg:grid-cols-12 lg:gap-8">
+    {# Sidebar Navigation #}
+    <aside class="hidden lg:block lg:col-span-3">
+      <nav class="sticky top-8">
+        {% include "components/sidebar.njk" %}
+      </nav>
+    </aside>
+
+    {# Main Content #}
+    <article class="lg:col-span-9">
+      <div class="prose prose-lg max-w-none">
+        <h1>{{ title }}</h1>
+        {{ content | safe }}
+      </div>
+    </article>
+  </div>
+</div>
