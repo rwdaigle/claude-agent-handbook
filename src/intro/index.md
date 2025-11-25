@@ -5,15 +5,12 @@ eleventyNavigation:
   order: 1
 ---
 
-Welcome to the Claude Agent Handbook—a comprehensive guide to building agentic systems with the Claude Agent SDK.
+Claude Code was the world's first example of an agent that could perform long-running and sophisticated tasks in a complex and unbounded domain.
 
-## What You'll Learn
+The framework that powers Claude Code has since been extracted to the [Claude Agent SDK][1], allowing others to build agentic systems of their own.
 
-This handbook covers the principles, patterns, and practices for creating effective AI agents powered by Claude.
+This handbook attempts to capture the real-world learnings, patterns, and approaches of building agents with the Claude Agent SDK.
 
-## Sections
+It is intentionally terse.
 
-- **Intro** — Overview and core concepts
-- **Basics** — Fundamental building blocks
-- **Design** — Architecture and system design
-- **Patterns** — Common patterns and best practices
+[1]:	https://platform.claude.com/docs/en/agent-sdk/overview
