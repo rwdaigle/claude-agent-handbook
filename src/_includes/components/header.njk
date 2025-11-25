@@ -1,12 +1,14 @@
 <header class="header">
   <div class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
     <div class="flex justify-between items-center h-20">
-      <a href="/" class="text-2xl tracking-tight{% if page.url == '/' %} hidden sm:block{% endif %}" style="font-family: 'Playfair Display', serif; font-weight: 700; color: var(--color-ink);">
+      {% if page.url != '/' %}
+      <a href="/" class="text-2xl tracking-tight" style="font-family: 'Playfair Display', serif; font-weight: 700; color: var(--color-ink);">
         {{ site.title }}
       </a>
+      {% endif %}
 
       {# Desktop navigation #}
-      <nav class="hidden lg:flex space-x-10">
+      <nav class="hidden lg:flex space-x-10 ml-auto">
         <a href="/" class="nav-link{% if page.url == '/' %} nav-link-active{% endif %}">Home</a>
         <a href="/intro/" class="nav-link{% if '/intro/' in page.url or '/basics/' in page.url or '/design/' in page.url or '/patterns/' in page.url %} nav-link-active{% endif %}">Handbook</a>
       </nav>
@@ -14,7 +16,7 @@
       {# Mobile menu button #}
       <button
         type="button"
-        class="lg:hidden p-2 -mr-2"
+        class="lg:hidden p-2 -mr-2 ml-auto"
         style="color: var(--color-ink-muted);"
         onclick="document.getElementById('mobile-menu').classList.toggle('hidden')"
         aria-label="Toggle menu"
