@@ -1,6 +1,20 @@
 ---
 layout: base.njk
 ---
+{# Get flat list of all nav pages for prev/next #}
+{% set navPages = collections.all | eleventyNavigation | flattenNavigationAndAddNextPrevious %}
+
+{# Find current page in nav #}
+{% set currentIndex = -1 %}
+{% for item in navPages %}
+  {% if item.url == page.url %}
+    {% set currentIndex = loop.index0 %}
+  {% endif %}
+{% endfor %}
+
+{% set prevPage = navPages[currentIndex - 1] if currentIndex > 0 else null %}
+{% set nextPage = navPages[currentIndex + 1] if currentIndex < navPages.length - 1 and currentIndex >= 0 else null %}
+
 <div class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 py-12 lg:py-16">
   <div class="lg:grid lg:grid-cols-12 lg:gap-16">
     {# Sidebar Navigation #}
@@ -16,6 +30,31 @@ layout: base.njk
         <h1 class="!mt-0">{{ title }}</h1>
         {{ content | safe }}
       </div>
+
+      {# Previous / Next Navigation #}
+      <nav class="mt-16 pt-8 border-t" style="border-color: var(--color-sepia-200);">
+        <div class="flex justify-between items-center gap-4">
+          {# Previous #}
+          <div class="flex-1">
+            {% if prevPage %}
+            <a href="{{ prevPage.url }}" class="group inline-flex items-center text-lg font-medium transition-colors" style="font-family: 'Playfair Display', serif; color: var(--color-ink-light);">
+              <span class="inline-block transition-transform group-hover:-translate-x-1 mr-2" style="color: var(--color-accent);">←</span>
+              {{ prevPage.title }}
+            </a>
+            {% endif %}
+          </div>
+
+          {# Next #}
+          <div class="flex-1 text-right">
+            {% if nextPage %}
+            <a href="{{ nextPage.url }}" class="group inline-flex items-center justify-end text-lg font-medium transition-colors" style="font-family: 'Playfair Display', serif; color: var(--color-ink-light);">
+              {{ nextPage.title }}
+              <span class="inline-block transition-transform group-hover:translate-x-1 ml-2" style="color: var(--color-accent);">→</span>
+            </a>
+            {% endif %}
+          </div>
+        </div>
+      </nav>
     </article>
   </div>
 </div>

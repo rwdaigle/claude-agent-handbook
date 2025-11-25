@@ -15,6 +15,21 @@ export default function(eleventyConfig) {
   // Year shortcode for copyright
   eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
 
+  // Flatten navigation for prev/next links
+  eleventyConfig.addFilter("flattenNavigationAndAddNextPrevious", (nav) => {
+    const flat = [];
+    const flatten = (items) => {
+      for (const item of items) {
+        flat.push(item);
+        if (item.children && item.children.length) {
+          flatten(item.children);
+        }
+      }
+    };
+    flatten(nav);
+    return flat;
+  });
+
   return {
     dir: {
       input: "src",

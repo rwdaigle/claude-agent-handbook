@@ -6,7 +6,7 @@
       </a>
 
       {# Desktop navigation #}
-      <nav class="hidden md:flex space-x-10">
+      <nav class="hidden lg:flex space-x-10">
         <a href="/" class="nav-link{% if page.url == '/' %} nav-link-active{% endif %}">Home</a>
         <a href="/intro/" class="nav-link{% if '/intro/' in page.url or '/basics/' in page.url or '/design/' in page.url or '/patterns/' in page.url %} nav-link-active{% endif %}">Handbook</a>
       </nav>
@@ -14,7 +14,7 @@
       {# Mobile menu button #}
       <button
         type="button"
-        class="md:hidden p-2 -mr-2"
+        class="lg:hidden p-2 -mr-2"
         style="color: var(--color-ink-muted);"
         onclick="document.getElementById('mobile-menu').classList.toggle('hidden')"
         aria-label="Toggle menu"
@@ -26,7 +26,7 @@
     </div>
 
     {# Mobile navigation #}
-    <nav id="mobile-menu" class="hidden md:hidden pb-6">
+    <nav id="mobile-menu" class="hidden lg:hidden pb-6">
       <div class="flex flex-col space-y-4">
         <a href="/" class="nav-link{% if page.url == '/' %} nav-link-active{% endif %}">Home</a>
         <a href="/intro/" class="nav-link{% if '/intro/' in page.url or '/basics/' in page.url or '/design/' in page.url or '/patterns/' in page.url %} nav-link-active{% endif %}">Handbook</a>
