@@ -8,7 +8,7 @@
       {# Desktop navigation #}
       <nav class="hidden md:flex space-x-10">
         <a href="/" class="nav-link{% if page.url == '/' %} nav-link-active{% endif %}">Home</a>
-        <a href="/docs/" class="nav-link{% if '/docs/' in page.url %} nav-link-active{% endif %}">Handbook</a>
+        <a href="/intro/" class="nav-link{% if '/intro/' in page.url or '/basics/' in page.url or '/design/' in page.url or '/patterns/' in page.url %} nav-link-active{% endif %}">Handbook</a>
       </nav>
 
       {# Mobile menu button #}
@@ -29,8 +29,8 @@
     <nav id="mobile-menu" class="hidden md:hidden pb-6">
       <div class="flex flex-col space-y-4">
         <a href="/" class="nav-link{% if page.url == '/' %} nav-link-active{% endif %}">Home</a>
-        <a href="/docs/" class="nav-link{% if '/docs/' in page.url %} nav-link-active{% endif %}">Handbook</a>
-        {% if '/docs/' in page.url %}
+        <a href="/intro/" class="nav-link{% if '/intro/' in page.url or '/basics/' in page.url or '/design/' in page.url or '/patterns/' in page.url %} nav-link-active{% endif %}">Handbook</a>
+        {% if '/intro/' in page.url or '/basics/' in page.url or '/design/' in page.url or '/patterns/' in page.url %}
         <div class="pt-4 border-t" style="border-color: var(--color-sepia-200);">
           <p class="text-xs uppercase tracking-widest mb-4" style="color: var(--color-ink-muted); font-weight: 600;">Contents</p>
           {% set navPages = collections.all | eleventyNavigation %}
