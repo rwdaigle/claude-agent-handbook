@@ -1,7 +1,7 @@
 <header class="header">
   <div class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
     <div class="flex justify-between items-center h-20">
-      <a href="/" class="text-2xl tracking-tight" style="font-family: 'Playfair Display', serif; font-weight: 700; color: var(--color-ink);">
+      <a href="/" class="text-2xl tracking-tight{% if page.url == '/' %} hidden sm:block{% endif %}" style="font-family: 'Playfair Display', serif; font-weight: 700; color: var(--color-ink);">
         {{ site.title }}
       </a>
 
